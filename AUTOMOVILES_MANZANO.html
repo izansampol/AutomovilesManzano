@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Automóviles Manzano</title>
+  <link rel="stylesheet" href="AUTOMOVILES_MANZANO.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+       <a href="#inicio" class="logo">Automóviles <span>Manzano</span></a>
+      <nav class="main-nav" id="mainNav">
+        <a href="#vehiculos">Vehículos</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#nosotros">Quiénes somos</a>
+        <a href="#taller">Cita taller</a>
+        <a href="#contacto">Contacto</a>
+        <!-- 🔹 NUEVO: enlace a favoritos con contador -->
+        <a href="favoritos.html" class="fav-link">❤️ Favoritos (<span id="favCount">0</span>)</a>
+      </nav>
+      <div class="header-actions">
+        <button id="menuBtn" class="btn-icon" aria-label="Abrir menú">☰</button>
+        <a class="cta" href="inicio sesion.html">Iniciar Sesión / Registrarse</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero" id="inicio">
+      <div class="container hero-inner">
+        <div class="hero-left">
+          <h1>Automóviles Manzano</h1>
+          <p>Garantía certificada en todos nuestros vehículos. </p>
+          <div class="hero-cta">
+            <a class="btn" href="#vehiculos">Ver stock de vehículos</a>
+            <a class="btn ghost" href="#contacto">Compramos tu coche</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tipos de coche -->
+    <section class="tipos-coche container fade-in">
+      <h2>Encuentra el tipo de coche ideal para ti</h2>
+      <div class="hero-cards">
+        <div class="mini-card" data-type="berlina">
+          <img src="berlina1.png" alt="Berlina">
+          <span>Berlina</span>
+        </div>
+        <div class="mini-card" data-type="cabrio">
+          <img src="cabrio1.png" alt="Cabrio">
+          <span>Cabriolet</span>
+        </div>
+        <div class="mini-card" data-type="familiar">
+          <img src="familiar1.png" alt="Familiar">
+          <span>Familiar</span>
+        </div>
+        <div class="mini-card" data-type="todoterreno">
+          <img src="todoterreno1.png" alt="Todoterreno">
+          <span>Todoterreno</span>
+        </div>
+        <div class="mini-card" data-type="deportivo">
+          <img src="deportivo1.png" alt="Deportivo">
+          <span>Deportivo</span>
+        </div>
+        <div class="mini-card" data-type="monovolumen">
+          <img src="monovolumen.png" alt="Monovolumen">
+          <span>Monovolumen</span>
+        </div>
+        <div class="mini-card" data-type="utilitario">
+          <img src="utilitario.png" alt="Utilitario">
+          <span>Utilitario</span>
+        </div>
+        <div class="mini-card" data-type="industrial">
+          <img src="industrial-removebg-preview-pica.png" alt="Vehículo Industrial">
+          <span>Vehículo Industrial</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Vehículos -->
+    <section id="vehiculos" class="content container">
+      <aside class="sidebar" id="sidebar">
+        <h3>Buscar</h3>
+        <!-- filtros (se mantienen) -->
+        <div class="filter-group">
+          <label for="marca">Marca</label>
+          <select id="marca">
+            <option value="">Todas</option>
+            <option>Audi</option>
+            <option>BMW</option>
+            <option>Mercedes</option>
+            <option>Seat</option>
+            <option>Hyundai</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <label for="combustible">Combustible</label>
+          <select id="combustible">
+            <option value="">Cualquiera</option>
+            <option>Gasolina</option>
+            <option>Diésel</option>
+            <option>Eléctrico</option>
+            <option>Híbrido</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <label>Precio hasta</label>
+          <input type="range" id="precio" min="2000" max="200000" step="1000" value="50000">
+          <div class="range-value"><span id="precioVal">50.000 €</span></div>
+        </div>
+
+        <div class="filter-group">
+          <label for="anio">Año desde</label>
+          <input type="number" id="anio" min="1990" max="2025" placeholder="Ej: 2018">
+        </div>
+
+        <div class="filter-group">
+          <label for="km">Kilometraje hasta</label>
+          <input type="number" id="km" step="1000" placeholder="Ej: 100000">
+        </div>
+
+        <div class="filter-group">
+          <label for="color">Color</label>
+          <select id="color">
+            <option value="">Cualquiera</option>
+            <option value="blanco">Blanco</option>
+            <option value="negro">Negro</option>
+            <option value="rojo">Rojo</option>
+            <option value="azul">Azul</option>
+            <option value="gris">Gris</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <label for="puertas">Número de puertas</label>
+          <select id="puertas">
+            <option value="">Cualquiera</option>
+            <option value="3">3</option>
+            <option value="5">5</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <label for="potencia">Potencia mínima (CV)</label>
+          <input type="number" id="potencia" step="10" placeholder="Ej: 100">
+        </div>
+
+        <div class="filter-group">
+          <label for="tipo">Carrocería</label>
+          <select id="tipo">
+            <option value="">Cualquiera</option>
+            <option value="suv">SUV</option>
+            <option value="berlina">Berlina</option>
+            <option value="cabrio">Cabrio</option>
+            <option value="familiar">Familiar</option>
+            <option value="todoterreno">Todoterreno</option>
+            <option value="deportivo">Deportivo</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <label for="transmision">Transmisión</label>
+          <select id="transmision">
+            <option value="">Cualquiera</option>
+            <option value="manual">Manual</option>
+            <option value="automatica">Automática</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <label for="ordenar">Ordenar por</label>
+          <select id="ordenar">
+            <option value="">Predeterminado</option>
+            <option value="precioAsc">Precio: Menor a mayor</option>
+            <option value="precioDesc">Precio: Mayor a menor</option>
+            <option value="kmAsc">Menos km</option>
+            <option value="kmDesc">Más km</option>
+            <option value="anioDesc">Más recientes</option>
+            <option value="anioAsc">Más antiguos</option>
+          </select>
+        </div>
+
+        <button id="aplicarBtn" class="btn full">Buscar</button>
+      </aside>
+
+      <section class="listings" id="listings">
+        <div class="listings-header">
+          <h2>Últimas novedades</h2>
+          <div class="tools">
+            <input id="searchInput" placeholder="Buscar modelo, marca..." />
+          </div>
+        </div>
+        <div class="cards-grid" id="cardsGrid"></div>
+      </section>
+    </section>
+
+    <!-- Servicios -->
+    <section id="servicios" class="container fade-in">
+      <h2>Servicios</h2>
+      <p>Garantías, talleres, especializado y asesoramiento personalizado</p>
+    </section>
+
+    <!-- Nosotros -->
+    <section id="nosotros" class="container fade-in">
+      <h2>Quiénes somos</h2>
+      <p>Una compraventa con disponibilidad de Taller y una amplia gama de vehículos</p>
+    </section>
+
+    <!-- Taller -->
+    <section id="taller" class="container fade-in">
+      <h2>Cita taller</h2>
+      <p>Solicita tu cita de taller online de manera rápida y sencilla.</p>
+    </section>
+
+    <!-- Contacto -->
+    <section id="contacto" class="container fade-in">
+      <h2>Contacto</h2>
+      <p>Email: info@automovilesmanzano.com | Teléfono: +34 621 273 797</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <h4>Automóviles Manzano</h4>
+        <p>C/ Ejemplo 123 — Ciudad — Tel: +34 621 273 797</p>
+      </div>
+      <div class="socials">
+        <a href="https://www.facebook.com/share/1C4fvVeBmD/?mibextid=wwXIfr" aria-label="Facebook">Facebook</a>
+        <a href="https://www.instagram.com/automoviles_manzano?igsh=bWhjMjNiczR3cXd4" aria-label="Instagram">Instagram</a>
+        <a href="#" aria-label="YouTube">YouTube</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="AUTOMOVILES_MANZANO.js"></script>
+</body>
+</html>

@@ -1,0 +1,385 @@
+html {
+  scroll-behavior: smooth;
+}
+
+:root{
+  --primary:#b40000;
+  --accent:#ff4d4d;
+  --bg:#f8f8f8;
+  --card:#ffffff;
+  --muted:#555;
+  --container:1100px;
+  --transition:.3s;
+  --radius:12px;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  font-family:Arial, Helvetica, sans-serif;
+  background:var(--bg);
+  color:#222;
+  line-height:1.6;
+}
+.container{
+  max-width:var(--container);
+  margin:0 auto;
+  padding:0 16px;
+}
+a{text-decoration:none;color:inherit;transition:var(--transition)}
+
+/* Header */
+.site-header{
+  background:#fff;
+  border-bottom:1px solid #ddd;
+  position:sticky;
+  top:0;
+  z-index:50;
+  box-shadow:0 2px 6px rgba(0,0,0,0.08);
+}
+.header-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:14px 0;
+}
+.logo{
+  font-weight:700;
+  font-size:22px;
+  color:var(--primary);
+}
+.logo span{
+  font-weight:400;
+  color:var(--accent);
+}
+.main-nav{display:flex;gap:18px}
+.main-nav a{
+  color:var(--muted);
+  font-size:15px;
+  font-weight:500;
+  position:relative;
+}
+.main-nav a:hover{color:var(--primary);}
+.main-nav a::after{
+  content:"";
+  position:absolute;
+  bottom:-4px;left:0;
+  width:0;height:2px;
+  background:var(--primary);
+  transition:var(--transition);
+}
+.main-nav a:hover::after{width:100%}
+.header-actions{
+  display:flex;
+  gap:12px;
+  align-items:center;
+}
+.btn-icon{
+  display:none;
+  border:0;
+  background:transparent;
+  font-size:22px;
+  cursor:pointer;
+}
+.cta{
+  background:linear-gradient(45deg,var(--primary),#900);
+  color:#fff;
+  padding:8px 14px;
+  border-radius:8px;
+  font-weight:600;
+  transition:var(--transition);
+  box-shadow:0 4px 8px rgba(0,0,0,0.2);
+}
+.cta:hover{transform:scale(1.05)}
+
+/* Hero */
+.hero {
+  background:url("pexels-photo-14240209.jpeg") no-repeat center center/cover;
+  color:#fff;
+  height:100vh;
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:flex-start;
+  text-align:left;
+  overflow:hidden;
+}
+.hero::before {
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.3));
+}
+.hero-inner {
+  position:relative;
+  z-index:1;
+  padding:0 40px;
+  max-width:700px;
+  animation:fadeUp 1s ease forwards;
+}
+.hero-left h1 {
+  font-size:56px;
+  font-weight:600;
+  margin-bottom:16px;
+  color:#fff;
+  text-shadow:2px 2px 6px rgba(0,0,0,0.6);
+}
+.hero-left p {
+  font-size:20px;
+  margin-bottom:14px;
+  color:#f1f1f1;
+}
+.hero-cta .btn {
+  background:var(--primary);
+  color:#fff;
+  padding:14px 22px;
+  border-radius:var(--radius);
+  font-weight:600;
+  margin-right:12px;
+  transition:var(--transition);
+  box-shadow:0 4px 8px rgba(0,0,0,0.25);
+}
+.hero-cta .btn:hover {
+  background:#900;
+  transform:scale(1.1);
+}
+.btn.ghost {
+  background:transparent;
+  border:2px solid #fff;
+  color:#fff;
+}
+.btn.ghost:hover {
+  background:#fff;
+  color:var(--primary);
+}
+@keyframes fadeUp {
+  from {opacity:0; transform:translateY(40px);}
+  to {opacity:1; transform:translateY(0);}
+}
+
+/* Tipos de coche */
+.tipos-coche{
+  margin:60px auto;
+  text-align:center;
+}
+.tipos-coche h2{
+  margin-bottom:24px;
+  color:var(--primary);
+  font-size:28px;
+  animation:fadeIn 1s ease-in;
+}
+.tipos-coche .hero-cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:20px;
+}
+.tipos-coche .mini-card{
+  background:#fff;
+  border-radius:12px;
+  box-shadow:0 6px 16px rgba(0,0,0,0.08);
+  padding:12px;
+  cursor:pointer;
+  transition:transform .3s, box-shadow .3s;
+}
+.tipos-coche .mini-card:hover{
+  transform:scale(1.05);
+  box-shadow:0 10px 24px rgba(0,0,0,0.15);
+}
+.tipos-coche .mini-card img{
+  width:100%;
+  border-radius:10px;
+  margin-bottom:10px;
+}
+.tipos-coche .mini-card span{
+  font-weight:600;
+  color:var(--primary);
+  font-size:16px;
+}
+
+/* Content */
+.content{display:flex;gap:24px;padding:40px 0}
+.sidebar{
+  width:280px;
+  height: 1070px;
+  background:var(--card);
+  padding:16px;
+  border-radius:12px;
+  box-shadow:0 6px 16px rgba(0,0,0,0.08);
+  transform:translateX(0);
+  transition:transform .4s ease;
+}
+.sidebar h3 {
+  font-size: 18px;
+  margin-bottom: 14px;
+  color: var(--primary);
+  border-bottom: 2px solid var(--primary);
+  padding-bottom: 6px;
+}
+.filter-group{margin-bottom:16px}
+.filter-group label{
+  display:block;
+  font-size:13px;
+  color:var(--muted);
+  margin-bottom:6px;
+}
+.filter-group select,
+.filter-group input[type="range"],
+.filter-group input[type="number"]{
+  width:100%;
+  padding:10px;
+  border-radius:8px;
+  border:1px solid #ccc;
+  background:#fafafa;
+  font-size:14px;
+  transition:border 0.3s, box-shadow 0.3s;
+}
+.filter-group input:focus,
+.filter-group select:focus {
+  border-color: var(--primary);
+  outline: none;
+  box-shadow:0 0 6px rgba(180,0,0,0.4);
+}
+.range-value{
+  margin-top:6px;
+  text-align:right;
+  color:var(--muted);
+  font-weight:600;
+}
+.btn.full{
+  width:100%;
+  padding:12px;
+  border-radius:8px;
+  background:linear-gradient(45deg,var(--primary),#900);
+  color:#fff;
+  border:0;
+  cursor:pointer;
+  font-weight:600;
+  transition:var(--transition);
+  box-shadow:0 4px 8px rgba(0,0,0,0.25);
+}
+.btn.full:hover{transform:scale(1.05)}
+
+/* Listings */
+.listings{flex:1}
+.listings-header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-bottom:16px;
+}
+.listings-header h2{margin:0;color:var(--primary);animation:fadeIn 1s ease-in}
+.tools input{
+  padding:10px 12px;
+  border-radius:8px;
+  border:1px solid #ccc;
+  transition:.3s;
+}
+.tools input:focus{border-color:var(--primary);box-shadow:0 0 6px rgba(180,0,0,0.4)}
+
+/* Cards grid */
+.cards-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:20px;
+}
+.card{
+  background:var(--card);
+  border-radius:12px;
+  padding:16px;
+  box-shadow:0 6px 14px rgba(0,0,0,0.06);
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  transition:transform .4s ease, box-shadow .4s ease;
+  opacity:0;
+  transform:translateY(30px);
+  animation:fadeUp .8s forwards;
+}
+.card:hover{transform:translateY(-6px) scale(1.02);box-shadow:0 10px 28px rgba(0,0,0,0.15)}
+.card .thumb{
+  height:160px;
+  border-radius:10px;
+  background:#eee;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:700;
+  color:var(--muted);
+}
+.card h3{margin:0;font-size:18px;color:var(--primary)}
+.card p{margin:0;color:var(--muted);font-size:14px}
+.card .price{margin-top:auto;font-weight:700;color:var(--accent);font-size:18px}
+
+/* Fade-in effect */
+.fade-in{
+  opacity:0;
+  transform:translateY(40px);
+  animation:fadeUp 1s forwards;
+}
+
+/* Footer */
+.site-footer{
+  background:var(--primary);
+  color:#fff;
+  padding:24px 0;
+  margin-top:60px;
+}
+.footer-inner{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  flex-wrap:wrap;
+}
+.socials a{
+  color:#fff;
+  margin-left:14px;
+  font-weight:500;
+}
+.socials a:hover{text-decoration:underline}
+
+/* Responsive */
+@media (max-width:900px){
+  .content{flex-direction:column}
+  .cards-grid{grid-template-columns:repeat(2,1fr)}
+  .sidebar{
+    position:fixed;
+    left:-300px;
+    top:60px;
+    bottom:0;
+    z-index:60;
+    transition:transform .4s ease;
+  }
+  .sidebar.show{
+    transform:translateX(300px);
+  }
+  .btn-icon{display:inline-block}
+}
+@media (max-width:600px){
+  .cards-grid{grid-template-columns:1fr}
+  .hero-inner{padding:40px 20px;text-align:center}
+  .hero-cta .btn{margin:8px 0}
+  .main-nav{display:none}
+}
+/* ...todo tu CSS existente... */
+
+/* Botón de favorito */
+.favorite-btn {
+  position:absolute;
+  top:10px;
+  right:10px;
+  font-size:22px;
+  background:rgba(255,255,255,0.9);
+  border-radius:50%;
+  border:0;
+  width:38px;
+  height:38px;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition:transform 0.2s, background 0.3s, color 0.3s;
+}
+.favorite-btn:hover { transform:scale(1.15); background:#fff; }
+.favorite-btn.active { color:var(--accent); }
+
+/* Ajustar card */
+.card { position:relative; }

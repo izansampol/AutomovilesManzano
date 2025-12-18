@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Iniciar sesión</title>
+  <link rel="stylesheet" href="inicio sesion.css">
+</head>
+<body>
+  <main class="container" role="main">
+    <!-- LOGIN -->
+    <section class="card" id="loginCard">
+      <h2>Inicia sesión</h2>
+      <p class="muted">Accede a tu cuenta con correo electrónico y contraseña.</p>
+
+      <form id="loginForm" novalidate>
+        <div>
+          <label for="loginEmail">Correo electrónico</label>
+          <input id="loginEmail" type="email" class="input" required placeholder="tu@ejemplo.com">
+          <div id="loginEmailError" class="error hidden"></div>
+        </div>
+
+        <div>
+          <label for="loginPassword">Contraseña</label>
+          <div class="field-with-icon">
+            <input id="loginPassword" type="password" class="input" required placeholder="••••••••">
+            <button type="button" class="toggle-pass" id="toggleLoginPass">👁️</button>
+          </div>
+          <div id="loginPassError" class="error hidden"></div>
+          <div class="strength" id="loginStrength"><i></i></div>
+        </div>
+
+        <div class="row options">
+          <label><input type="checkbox"> Recuérdame</label>
+          <a href="#" class="link">¿Olvidaste tu contraseña?</a>
+        </div>
+
+        <button class="btn" type="submit">Entrar</button>
+        <div id="loginMsg" class="note hidden"></div>
+      </form>
+    </section>
+
+ 
+
+  <script src="inicio sesion.js"></script>
+</body>
+</html>

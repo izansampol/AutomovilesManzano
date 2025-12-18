@@ -1,0 +1,121 @@
+:root{
+  --bg:#0e1525;
+  --card:#131c2f;
+  --accent:#ef4444; /* rojo */
+  --muted:#9ca3af;
+  --danger:#ef4444;
+  --glass: rgba(255,255,255,0.05);
+  --radius:16px;
+  font-family: 'Segoe UI', Roboto, Inter, sans-serif;
+}
+
+/* Reset */
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100%;
+  padding: 12px;
+  position: relative;
+
+  /* Imagen de fondo que cubre todo */
+  background: url("Concesionario/aaea8438-031e-465b-91d3-b2d031050b7f.jpg") no-repeat center center;
+  background-size: cover; /* cubre todo sin deformar */
+}
+
+/* Overlay semitransparente sobre la imagen */
+body::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* oscurece el fondo para resaltar la tarjeta */
+  z-index: 0;
+}
+
+.container {
+  width: 100%;
+  max-width: 400px;
+  position: relative;
+  z-index: 1; /* tarjeta sobre overlay */
+}
+
+/* Tarjeta del login */
+.card{
+  background:var(--card);
+  border-radius:var(--radius);
+  padding:32px;
+  box-shadow:0 12px 30px rgba(0,0,0,0.45);
+  border:1px solid rgba(255,255,255,0.05);
+  animation:fadeIn 0.6s ease;
+}
+
+.card h2{margin-bottom:8px;font-size:26px;font-weight:600; color:white}
+.card p{margin-bottom:18px;color:var(--muted)}
+
+form{display:flex;flex-direction:column;gap:18px}
+label{font-size:14px;color:var(--muted);margin-bottom:6px;display:block}
+.input{
+  width:100%;padding:12px 14px;
+  border-radius:10px;border:1px solid rgba(255,255,255,0.08);
+  background:var(--glass);color:#fff;
+  font-size:15px;outline:none;
+  transition:border-color .2s, box-shadow .2s;
+}
+.input:focus{
+  border-color:var(--accent);
+  box-shadow:0 0 0 3px rgba(239,68,68,0.3); /* sombra roja */
+}
+
+/* Botón */
+.btn{
+  padding:14px;border:none;border-radius:10px;
+  background:linear-gradient(90deg, #ef4444, #b91c1c); /* tonos rojos */
+  color:#fff;font-weight:600;font-size:16px;cursor:pointer;
+  transition:transform .1s, box-shadow .2s;
+}
+.btn:hover{box-shadow:0 6px 16px rgba(239,68,68,0.4)}
+.btn:active{transform:scale(0.98)}
+
+/* Links */
+.link{color:var(--accent);text-decoration:none;transition:opacity .2s}
+.link:hover{opacity:0.8}
+
+/* Otros elementos */
+.row{display:flex;justify-content:space-between;align-items:center}
+.options{margin-top:-6px}
+
+.muted{color:var(--muted);font-size:13px}
+.note{color:var(--muted);font-size:12px;margin-top:12px}
+
+.error{color:var(--danger);font-size:13px}
+.hidden{display:none}
+
+/* Mostrar/ocultar contraseña */
+.field-with-icon{position:relative}
+.toggle-pass{
+  position:absolute;right:10px;top:50%;transform:translateY(-50%);
+  background:none;border:none;color:var(--muted);
+  font-size:16px;cursor:pointer;
+}
+
+/* Indicador de fuerza */
+.strength{height:8px;border-radius:999px;background:rgba(255,255,255,0.08);overflow:hidden;margin-top:8px}
+.strength > i{display:block;height:100%;width:0%;transition:width .25s ease}
+.strength.weak > i{width:20%;background:#ef4444}
+.strength.fair > i{width:50%;background:#f87171}
+.strength.good > i{width:75%;background:#fca5a5}
+.strength.strong > i{width:100%;background:#b91c1c}
+
+/* Animaciones */
+@keyframes fadeIn{
+  from{opacity:0;transform:translateY(10px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+/* Responsive */
+@media(max-width:880px){
+  .container{grid-template-columns:1fr}
+}
